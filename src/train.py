@@ -1,7 +1,7 @@
 import os
 import pickle
 import sys
-
+from mlem.api import save
 import numpy as np
 import yaml
 from sklearn.ensemble import RandomForestClassifier
@@ -35,5 +35,6 @@ clf = RandomForestClassifier(
 
 clf.fit(x, labels)
 
+save(clf, "models/rf")
 with open(output, "wb") as fd:
     pickle.dump(clf, fd)
